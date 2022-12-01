@@ -1,11 +1,9 @@
 package com.driver;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-
 
 @Service
 public class MovieService {
@@ -21,19 +19,20 @@ public class MovieService {
         movieRepository.saveDirector(director);
     }
 
-    public void createMovieDirectorPair(String movie , String director){
-        movieRepository.saveMovieDirectorPair(movie , director);
+    public void createMovieDirectorPair(String movie, String director){
+        movieRepository.saveMovieDirectorPair(movie, director);
     }
 
     public Movie findMovie(String movieName){
         return movieRepository.findMovie(movieName);
     }
+
     public Director findDirector(String directorName){
-        return movieRepository.finfDirector(directorName);
+        return movieRepository.findDirector(directorName);
     }
 
-    public List<String> findMovieFromDirector(String directorName){
-        return movieRepository.findMovieFromDirector(directorName);
+    public List<String> findMoviesFromDirector(String director){
+        return movieRepository.findMoviesFromDirector(director);
     }
 
     public List<String> findAllMovies(){
@@ -47,5 +46,4 @@ public class MovieService {
     public void deleteAllDirectors(){
         movieRepository.deleteAllDirector();
     }
-
 }
